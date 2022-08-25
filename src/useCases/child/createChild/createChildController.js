@@ -3,15 +3,14 @@ const { CreateChildUseCase } = require("./createChildUseCase");
 const createChildUseCase = CreateChildUseCase();
 
 const CreateChildController = () => {
-  const handle = (request, response) => {
-    const { name, age, guardian, contact, place } = request.body;
+  const handle = async (request, response) => {
+    const { name, age, guardian, contact } = request.body;
 
-    const child = createChildUseCase.execute({
+    const child = await createChildUseCase.execute({
       name,
       age,
       guardian,
       contact,
-      place,
     });
 
     response.status(201).json(child);
