@@ -1,4 +1,4 @@
-const { ListChildrenUseCase } = require("./ListChildrenUseCase");
+const { ListChildrenUseCase } = require("./listChildrenUseCase");
 
 const listChildrenUseCase = ListChildrenUseCase();
 
