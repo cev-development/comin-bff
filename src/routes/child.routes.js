@@ -15,19 +15,58 @@ const {
 const {
   UpdateChildController,
 } = require("../useCases/child/updateChild/updateChildController");
+const {
+  MoveAllChildrenHomeController,
+} = require("../useCases/child/moveAllChildrenHome/moveAllChildrenHomeController");
+const {
+  ShowChildController,
+} = require("../useCases/child/showChild/showChildController");
+
+const { ensureAuthenticated } = require("../middlewares/ensureAuthenticated");
+const { ensureAdmin } = require("../middlewares/ensureAdmin");
 
 const createChildController = CreateChildController();
 const listChildrenController = ListChildrenController();
+const showChildController = ShowChildController();
 const listChildrenByPlaceController = ListChildrenByPlaceController();
 const moveChildrenController = MoveChildrenController();
 const updateChildController = UpdateChildController();
+const moveAllChildrenHomeController = MoveAllChildrenHomeController();
 
 const childRoutes = Router();
 
-childRoutes.get("/child", listChildrenController.handle);
-childRoutes.get("/child/place/:place", listChildrenByPlaceController.handle);
-childRoutes.post("/child", createChildController.handle);
-childRoutes.patch("/child/move/:place", moveChildrenController.handle);
-childRoutes.put("/child/:childId", updateChildController.handle);
+childRoutes.get("/child", ensureAuthenticated, listChildrenController.handle);
+
+childRoutes.get(
+  "/child/:childId",
+  ensureAuthenticated,
+  showChildController.handle
+);
+
+childRoutes.get(
+  "/child/place/:place",
+  ensureAuthenticated,
+  listChildrenByPlaceController.handle
+);
+
+childRoutes.post("/child", ensureAuthenticated, createChildController.handle);
+
+childRoutes.patch(
+  "/child/move/:place",
+  ensureAuthenticated,
+  moveChildrenController.handle
+);
+
+childRoutes.put(
+  "/child/:childId",
+  ensureAuthenticated,
+  updateChildController.handle
+);
+
+childRoutes.patch(
+  "/child/all/move/home",
+  ensureAdmin,
+  moveAllChildrenHomeController.handle
+);
 
 module.exports = { childRoutes };
