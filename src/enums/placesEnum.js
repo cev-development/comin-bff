@@ -1,7 +1,8 @@
 module.exports = {
   places: {
     COMIN: "comin",
-    HOME: "home",
-    RESTROOM: "restroom",
+    COMIN_INFANTIL: "cominIn",
+    HOME: "casa",
+    RESTROOM: "banheiro",
   },
 };

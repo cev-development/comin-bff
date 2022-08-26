@@ -7,12 +7,15 @@ const CreateChildUseCase = () => {
     const alreadyExists = await Child.findOne({ name, age, guardian });
     if (alreadyExists) throw appError("Criança já cadastrada");
 
+    const place =
+      age > 5 ? placesEnum.places.COMIN : placesEnum.places.COMIN_INFANTIL;
+
     const child = await Child.create({
       name,
       age,
       guardian,
       contact,
-      place: placesEnum.places.COMIN,
+      place,
     });
 
     return child;
