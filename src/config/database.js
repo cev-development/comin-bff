@@ -4,7 +4,7 @@ const url =
   "mongodb+srv://programming-course:nJJ0YgeaxZdyQF7g@cluster0.0kg7w.mongodb.net/comin-db?retryWrites=true&w=majority";
 
 const connectDatabase = () => {
-  mongoose
+  mongoose.set('strictQuery', true)
     .connect(url)
     .then(() => {
       console.log(`[DATABASE]`, `Mongodb Connected`);
