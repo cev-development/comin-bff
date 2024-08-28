@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const url =
-  "mongodb+srv://sysComin:TRJHCyATSBp9sxDJ@comin.2ejjz1k.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://programming-course:nJJ0YgeaxZdyQF7g@cluster0.0kg7w.mongodb.net/comin-db?retryWrites=true&w=majority";
 
 const connectDatabase = () => {
   mongoose
