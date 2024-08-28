@@ -16,7 +16,7 @@ const ChildSchema = new mongoose.Schema(
     },
     pcd: {
       type: String | null,
-      required: true,
+      required: false,
     },
     sensitivity: {
       type: String | null,
