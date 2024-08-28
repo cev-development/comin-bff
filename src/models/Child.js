@@ -20,7 +20,7 @@ const ChildSchema = new mongoose.Schema(
     },
     sensitivity: {
       type: String | null,
-      required: true,
+      required: false,
     },
     literacy:  {
       type: Boolean,
