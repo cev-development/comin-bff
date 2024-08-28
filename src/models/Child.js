@@ -14,6 +14,26 @@ const ChildSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    pcd: {
+      type: String | null,
+      required: true,
+    },
+    sensitivity: {
+      type: String | null,
+      required: true,
+    },
+    literacy:  {
+      type: Boolean,
+      required: true,
+    },
+    learningDisorder:  {
+      type: Boolean,
+      required: true,
+    },
+    escort: {
+      type: Boolean,
+      required: true,
+    },
     contact: {
       type: String,
       required: true,
