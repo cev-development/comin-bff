@@ -23,15 +23,15 @@ const ChildSchema = new mongoose.Schema(
       required: false,
     },
     literacy:  {
-      type: Boolean,
+      type: String,
       required: true,
     },
     learningDisorder:  {
-      type: Boolean,
+      type: String,
       required: true,
     },
     escort: {
-      type: Boolean,
+      type: String,
       required: true,
     },
     contact: {
